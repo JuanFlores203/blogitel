@@ -6,14 +6,17 @@ use Illuminate\Http\Request;
 
 class CertificadoController extends Controller
 {
-    public function index(){        //validacion
+    public function index(){        //validacion        
+        return view('certificado.index');
+    }
+
+    public function show(){        //form        
+        return view('certificado.show');
         
-        return "Esta en la sección de validación, no ingreso qr";
     }
     
-    public function show($gen_code){         // form
-
-        return "leyendo qr :$gen_code";
+    public function create($gen_code){         // form + gen_code
+        return view('certificado.create', ['code' => $gen_code]);
     }
 
 }

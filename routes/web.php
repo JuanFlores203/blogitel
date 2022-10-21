@@ -14,19 +14,21 @@ use App\Http\Controllers\CertificadoController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 Route::get('/', HomeController::class );
 
-Route::get('certificado', [CertificadoController::class,'index'] );
+Route::controller(CertificadoController::class) -> group(function(){
 
-Route::get('certificado/validacion', [CertificadoController::class,'index'] );
+    Route::get('certificado', 'index');  //home
+    Route::get('certificado/validacion', 'show'); 
+    Route::get('certificado/validacion/{gen_code}', 'create'); 
 
-Route::get('certificado/validacion/{ge_code}', [CertificadoController::class,'show'] );
+});
 
-
+//HOLA MUNDO
 // Esto es prueba
 /*
 Route::get('fio', function () {
@@ -42,3 +44,4 @@ Route::get('certificado/validacion/{gen_code}', function ($gen_code) {          
     return "leyendo qr :$gen_code";
 });
 */
+
