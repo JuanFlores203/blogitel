@@ -20,13 +20,32 @@ use App\Http\Controllers\CertificadoController;
 
 Route::get('/', HomeController::class );
 
-Route::controller(CertificadoController::class) -> group(function(){
+
+Route::controller(CertificadoController::class) -> group(function($gen_code){
 
     Route::get('certificado', 'index');  //home
-    Route::get('certificado/validacion', 'show'); 
-    Route::get('certificado/validacion/{gen_code}', 'create'); 
+    Route::get('certificado/validacion/{gen_code?}', 'show'); 
+    //Route::get('certificado/validacion/{gen_code?}', 'create'); 
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Route::get('certificado', [CertificadoController::class,'index']);  //home
+//Route::get('certificado/validacion', [CertificadoController::class,'show']); 
+//Route::get('certificado/validacion/{gen_code}', [CertificadoController::class,'show']);
+
 
 //HOLA MUNDO
 // Esto es prueba

@@ -8,7 +8,8 @@
 </head>
 <body>
     <H2>CREATE</H2>
-    <?PHP $gen_code; ?>
+    <?PHP //echo($gen_code); ?>
+    <?PHP echo($code); ?>
 </body>
 </html>
 
